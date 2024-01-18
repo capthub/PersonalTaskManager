@@ -1,0 +1,12 @@
+Instrukcja:
+
+1. Po uruchomieniu aplikacji, otworzy się główe okno z listą zadań na dzień dzisiejszy.
+2. W celu dodania zadania dla danego dnia, należy wybrać dzień za pomocą kontrolki z kalendarzem lub poprzez wprowadzenie daty ręcznie.
+Następnie należy nacisnąć 'Dodaj Zadanie' oraz wprowadzić opis zadania w nowym oknie potwierdzając guzikiem 'Zapisz'.
+3. W celu edycji zadania dla wybranego dnia, należy nacisnąć na wybrane zadanie, w celu podświetlenia go. 
+Następnie należy nacisnąć 'Edytuj Zadanie' oraz wprowadzić nowy opis w nowym oknie, potwierdzając guzikiem 'Zapisz'.
+4. W celu usunięcia zadania dla wybranego dnia, należy nacisnąć na wybrane zadanie, w celu podświetlenia go.
+Następnie należy nacisnąć 'Usuń Zadanie' w celu natychmiastowego usunięcia.
+5. Aplikacja również informuje o ilości nadchodzących zadań w ciągu najbliższych 3 dni - nie licząc dnia dzisiejszego. 
+Informacja jest umieszczona ponad tabelą z listą zadań na wybrany dzień.
+6. W celu zamknięcia aplikacji, należy nacisnąć na czerwoną ikonę X w prawym górnym rogu.
