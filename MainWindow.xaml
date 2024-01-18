@@ -1,0 +1,50 @@
+﻿<Window x:Class="PersonalTaskManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Task Management App" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="27*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Text="{Binding TaskData.UpcomingTasksMessage}" Margin="25,50,0,0" IsReadOnly="True" Width="400" FontWeight="Bold" BorderThickness="0"/>
+        <StackPanel Grid.Column="0" Margin="10">
+            <DatePicker SelectedDate="{Binding SelectedDate}" DisplayDateStart="{Binding Today}" Width="320" />
+
+            <ListBox ItemsSource="{Binding TaskData.Tasks}" SelectedItem="{Binding SelectedTask}" Margin="60,40,0,0" Background="#e9e9e9">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Description}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <!-- Wiadomosc jesli nie ma zadan na dany dzien -->
+                <ListBox.Style>
+                    <Style TargetType="ListBox">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding TaskData.Tasks.Count}" Value="0">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBox">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <TextBlock Text="Nie ma zadań w wybranym dniu." Margin="10"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.Style>
+            </ListBox>
+
+            <StackPanel Orientation="Horizontal" Margin="0">
+                <Button Content="Dodaj Zadanie" Command="{Binding AddTaskCommand}" Width="130" Margin="62,10,10,10" Background="#a1e879" />
+            <Button Content="Edytuj Zadanie" Command="{Binding UpdateTaskCommand}" Height="30" Width="130" Margin="10"/>
+            <Button Content="Usuń Zadanie" Command="{Binding DeleteTaskCommand}" Width="130" Margin="10" Background="#FFD8AAAA"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
